@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@shared/types/*": ["packages/shared-types/src/*"],
+      "@shared/utils/*": ["packages/shared-utils/src/*"],
+      "@frontend/*": ["apps/frontend/src/*"],
+      "@api/*": ["apps/api/src/*"],
+      "@bot/*": ["apps/teams-bot/src/*"]
+    }
+  },
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "tools/**/*",
+    "tests/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build"
+  ],
+  "references": [
+    {
+      "path": "./apps/frontend"
+    },
+    {
+      "path": "./apps/api"
+    },
+    {
+      "path": "./apps/teams-bot"
+    },
+    {
+      "path": "./packages/shared-types"
+    },
+    {
+      "path": "./packages/shared-utils"
+    }
+  ]
+}

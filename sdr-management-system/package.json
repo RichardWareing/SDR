@@ -1,0 +1,67 @@
+{
+  "name": "sdr-management-system",
+  "version": "1.0.0",
+  "description": "Small Development Request Management Platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:api\" \"npm run dev:bot\"",
+    "dev:frontend": "npm run dev --workspace=apps/frontend",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:bot": "npm run dev --workspace=apps/teams-bot",
+    "build": "npm run build --workspaces",
+    "build:frontend": "npm run build --workspace=apps/frontend",
+    "build:api": "npm run build --workspace=apps/api",
+    "build:bot": "npm run build --workspace=apps/teams-bot",
+    "test": "npm run test --workspaces",
+    "test:unit": "jest --projects apps/*/jest.config.js --testPathPattern=unit",
+    "test:integration": "jest --projects apps/*/jest.config.js --testPathPattern=integration",
+    "test:e2e": "cd tests/e2e && npx playwright test",
+    "test:coverage": "npm run test:unit -- --coverage",
+    "test:watch": "npm run test:unit -- --watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "type-check": "npm run type-check --workspaces",
+    "setup:devops": "node tools/scripts/dev-setup.js",
+    "seed:data": "node tools/scripts/seed-data.js",
+    "clean": "node tools/scripts/cleanup.js",
+    "deploy:dev": "bash scripts/deploy.sh dev",
+    "deploy:staging": "bash scripts/deploy.sh staging",
+    "deploy:prod": "bash scripts/deploy.sh prod"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "concurrently": "^8.0.0",
+    "eslint": "^8.50.0",
+    "husky": "^8.0.0",
+    "jest": "^29.0.0",
+    "lerna": "^7.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourorg/sdr-management-system.git"
+  },
+  "keywords": [
+    "sdr",
+    "development-requests",
+    "azure",
+    "devops",
+    "teams-bot",
+    "ai-processing"
+  ],
+  "author": "SDR Management Team",
+  "license": "MIT"
+}

@@ -1,0 +1,47 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "WEBSITE_NODE_DEFAULT_VERSION": "~18",
+    
+    "DEVOPS_ORGANIZATION": "your-devops-organization",
+    "DEVOPS_PROJECT": "your-project-name",
+    "KEY_VAULT_URL": "https://your-keyvault.vault.azure.net/",
+    
+    "AZURE_CLIENT_ID": "your-azure-client-id",
+    "AZURE_CLIENT_SECRET": "your-azure-client-secret",
+    "AZURE_TENANT_ID": "your-azure-tenant-id",
+    
+    "JWT_SECRET": "your-jwt-secret-key-for-development",
+    "JWT_EXPIRES_IN": "24h",
+    
+    "BLOB_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=your-storage-account;AccountKey=your-key;EndpointSuffix=core.windows.net",
+    "BLOB_CONTAINER_NAME": "sdr-attachments",
+    
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=your-key;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/",
+    
+    "CORS_ORIGINS": "http://localhost:3000,https://your-frontend-domain.com",
+    
+    "LOG_LEVEL": "debug",
+    "ENABLE_REQUEST_LOGGING": "true",
+    
+    "RATE_LIMIT_ENABLED": "true",
+    "RATE_LIMIT_REQUESTS_PER_HOUR": "1000",
+    
+    "OPENAI_API_KEY": "your-openai-api-key",
+    "OPENAI_MODEL": "gpt-4",
+    
+    "NOTIFICATION_ENABLED": "true",
+    "TEAMS_WEBHOOK_URL": "https://your-teams-webhook-url"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*",
+    "CORSCredentials": false
+  },
+  "ConnectionStrings": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true"
+  }
+}

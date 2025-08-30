@@ -1,0 +1,39 @@
+{
+  "name": "@sdr/teams-bot",
+  "version": "1.0.0",
+  "description": "SDR Management System - Microsoft Teams Bot",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "botbuilder": "^4.20.0",
+    "botframework-connector": "^4.20.0",
+    "botbuilder-ai": "^4.20.0",
+    "restify": "^11.1.0",
+    "adaptivecards": "^3.0.0",
+    "@azure/identity": "^3.3.0",
+    "@azure/keyvault-secrets": "^4.7.0",
+    "axios": "^1.5.0",
+    "joi": "^17.10.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/restify": "^8.5.5",
+    "@types/uuid": "^9.0.0",
+    "nodemon": "^3.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
