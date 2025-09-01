@@ -10,11 +10,14 @@ param keyVaultName string
 @description('Storage Account name')
 param storageAccountName string
 
+@description('Enable Key Vault deployment')
+param enableKeyVault bool = false
+
 @description('Resource tags')
 param tags object = {}
 
 // Key Vault
-resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = {
+resource keyVault 'Microsoft.KeyVault/vaults@2023-02-01' = if (enableKeyVault) {
   name: keyVaultName
   location: location
   tags: tags
@@ -119,7 +122,7 @@ resource attachmentsContainer 'Microsoft.Storage/storageAccounts/blobServices/co
 
 // Application Insights
 resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
-  name: '${keyVaultName}-ai'
+  name: '${storageAccountName}-ai'
   location: location
   tags: tags
   kind: 'web'
@@ -133,7 +136,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
 
 // Log Analytics Workspace
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
-  name: '${keyVaultName}-logs'
+  name: '${storageAccountName}-logs'
   location: location
   tags: tags
   properties: {
@@ -153,8 +156,8 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10
 }
 
 // Outputs
-output keyVaultId string = keyVault.id
-output keyVaultName string = keyVault.name
+output keyVaultId string = enableKeyVault ? keyVault.id : ''
+output keyVaultName string = enableKeyVault ? keyVault.name : keyVaultName
 output storageAccountId string = storageAccount.id
 output storageAccountName string = storageAccount.name
 output appInsightsId string = appInsights.id

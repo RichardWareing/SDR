@@ -1,6 +1,7 @@
 {
   "IsEncrypted": false,
   "Values": {
+    "_comment": "For production environments with Key Vault enabled, replace secret values with @Microsoft.KeyVault references e.g., \"AZURE_CLIENT_SECRET\": \"@Microsoft.KeyVault(SecretUri=https://your-keyvault.vault.azure.net/secrets/azure-client-secret)\"",
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "FUNCTIONS_EXTENSION_VERSION": "~4",
@@ -20,7 +21,7 @@
     "BLOB_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=your-storage-account;AccountKey=your-key;EndpointSuffix=core.windows.net",
     "BLOB_CONTAINER_NAME": "sdr-attachments",
     
-    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=your-key;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=your-key;IngestionEndpoint=https://uksouth-0.in.applicationinsights.azure.com/;LiveEndpoint=https://uksouth.livediagnostics.monitor.azure.com/",
     
     "CORS_ORIGINS": "http://localhost:3000,https://your-frontend-domain.com",
     

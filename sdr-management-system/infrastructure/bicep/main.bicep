@@ -4,10 +4,13 @@ targetScope = 'subscription'
 param environment string
 
 @description('Location for resources')
-param location string = 'East US'
+param location string = 'uksouth'
 
 @description('Application name prefix')
 param appName string = 'sdr'
+
+@description('Enable Key Vault deployment for production')
+param enableKeyVault bool = (environment == 'prod')
 
 @description('Resource tags')
 param tags object = {}
@@ -36,6 +39,7 @@ module coreInfrastructure 'modules/core-infrastructure.bicep' = {
     location: location
     keyVaultName: keyVaultName
     storageAccountName: storageAccountName
+    enableKeyVault: enableKeyVault
     tags: tags
   }
 }
@@ -50,6 +54,7 @@ module apiInfrastructure 'modules/api-infrastructure.bicep' = {
     functionAppName: functionAppName
     storageAccountName: storageAccountName
     keyVaultName: keyVaultName
+    enableKeyVault: enableKeyVault
     tags: tags
   }
   dependsOn: [
@@ -79,6 +84,7 @@ module botInfrastructure 'modules/bot-infrastructure.bicep' = {
     botServiceName: botServiceName
     functionAppName: functionAppName
     keyVaultName: keyVaultName
+    enableKeyVault: enableKeyVault
     tags: tags
   }
   dependsOn: [
